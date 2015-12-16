@@ -2,17 +2,17 @@
 <html>
 <head>
 	<title>TabList</title>
-	<style type="text/css">body{width:300px;height: 200px;max-width:300px;max-height: 200px;}#title{text-align:center;border-bottom:1px solid #95a5a6;}textarea{width: 100%;max-width: 100%;height: 150px;}#import{width: 100%;margin-bottom: 5px;}#tabcount{color:green;text-shadow:0 0 3px green;}</style>
+	<style type="text/css">body{width:300px;height: 200px;max-width:300px;max-height: 200px;}#title{text-align:center;border-bottom:1px solid #95a5a6;}textarea{width: 100%;max-width: 100%;height: 150px;}#import{width: 100%;margin-bottom: 5px;}#tabcount{color:green;text-shadow:0 0 3px green;}#tab{width: 100%;text-align: center;}#tab a{padding: 0 20px;}.show{display:block;}.hide{display:none}</style>
 </head>
 <body>
 	<h1 id="title">TabList</h1>
 	<p><span id="tabcount"></span> tabs in Chrome.</p>
 	<p>Export Tabs</p>
-	<!-- ToooDoooooo
-	<p><input type="radio" name="A" value="1">Plain Text<input type="radio" name="A" value="2">JSON</p> -->
-	<p><textarea id="outtext"></textarea></p>
-	<p><textarea id="outjson"></textarea></p>
-	<p>Import Tabs</p>
+	<!-- ToooDoooooo -->
+	<div id="tab"><a href="#" class="tab_text">PlainText</a><a href="#" class="tab_json">JSON</a></div>
+	<p><textarea id="outtext" class="show"></textarea></p>
+	<p><textarea id="outjson" class="hide"></textarea></p>
+	<p>Import Tabs (JSON Only)</p>
 	<p><textarea id="importJsonArea"></textarea></p>
 	<p><button id="import">Import!</button></p>
 	<script src="popup.js" tyle="text/javascript"></script>

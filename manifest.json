@@ -3,6 +3,7 @@
   "version": "1.0",
   "manifest_version": 2,
   "description": "Import & Export tabs",
+  "homepage_url": "https://github.com/furufuru/tablist",
   "icons": {
     "128": "icon128.png" 
   },
