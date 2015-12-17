@@ -40,7 +40,11 @@
 			for(var v in tab){
 				json += "{";
 				json += "\"title\": \"" + tab[v].title + "\",\"url\": \"" + tab[v].url + "\""; //json 
-				json += "},";
+				if(v == tab.length - 1){
+					json += "}";
+				} else {
+					json += "},";
+				}
 			}
 			json += "]";
 		}outasjson();
