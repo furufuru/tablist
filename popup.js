@@ -58,8 +58,9 @@
 	});
 	function ImportJson(){
 		console.log(inputJson.value);
-		if(inputJson.value == ""){
-			inputJson.value = "ERROR";
+		if(inputJson.value == "" || inputJson.value == null){
+			console.log("Nothing");
+			errorn()
 		} else {
 			var urls = JSON.parse(inputJson.value);
 			for(var v in urls){
@@ -69,8 +70,15 @@
 	}
 
 	function openTabs(link){
-		chrome.tabs.create({url:link},function(tabs){
+		chrome.tabs.create({url:link},function(tab){
+			console.log(tab);
 			return true;
 		});
 	}
 })();
+
+function errorn(){
+	var errorElement = document.getElementById('error');
+	errorElement.classList.remove('hide');
+	errorElement.classList.add('show');
+}
