@@ -57,12 +57,16 @@
 		outputText.value = plaintext;
 	});
 	function ImportJson(){
-		console.log(inputJson.value);
 		if(inputJson.value == "" || inputJson.value == null){
 			console.log("Nothing");
-			errorn()
+			ShowError();
 		} else {
-			var urls = JSON.parse(inputJson.value);
+			try{
+				var urls = JSON.parse(inputJson.value);
+			} catch(e) {
+				console.log("Invaild JSON");
+				ShowError();
+			}
 			for(var v in urls){
 				openTabs(urls[v].url);
 			}
@@ -77,7 +81,7 @@
 	}
 })();
 
-function errorn(){
+function ShowError(){
 	var errorElement = document.getElementById('error');
 	errorElement.classList.remove('hide');
 	errorElement.classList.add('show');
