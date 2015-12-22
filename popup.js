@@ -63,12 +63,12 @@
 		} else {
 			try{
 				var urls = JSON.parse(inputJson.value);
+				for(var v in urls){
+					openTabs(urls[v].url);
+				}
 			} catch(e) {
-				console.log("Invaild JSON");
+				console.log("Invaild JSON: " + e);
 				ShowError();
-			}
-			for(var v in urls){
-				openTabs(urls[v].url);
 			}
 		}
 	}
