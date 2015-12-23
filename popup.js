@@ -79,10 +79,14 @@
 			return true;
 		});
 	}
-})();
 
-function ShowError(){
-	var errorElement = document.getElementById('error');
-	errorElement.classList.remove('hide');
-	errorElement.classList.add('show');
-}
+	function ShowError(){
+		var errorElement = document.getElementById('error');
+		errorElement.classList.remove('hide');
+		errorElement.classList.add('show');
+		setInterval(function(){
+			errorElement.classList.add('hide');
+			errorElement.classList.remove('show');
+		},3000);
+	}
+})();
