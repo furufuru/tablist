@@ -1,0 +1,16 @@
+{
+  "title": "TabList",
+  "name": "TabList",
+  "version": "0.0.0",
+  "description": "Import & Export tabs",
+  "main": "index.js",
+  "author": "Furufuru",
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "license": "MIT",
+  "keywords": [
+    "jetpack"
+  ]
+}

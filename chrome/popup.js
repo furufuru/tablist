@@ -85,8 +85,8 @@
 		errorElement.classList.remove('hide');
 		errorElement.classList.add('show');
 		setInterval(function(){
-			errorElement.classList.add('hide');
 			errorElement.classList.remove('show');
+			errorElement.classList.add('hide');
 		},3000);
 	}
 })();
