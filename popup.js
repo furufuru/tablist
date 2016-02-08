@@ -1,17 +1,19 @@
 (function(){
 	'use strict';
+
+	// iroiro
 	var count = document.getElementById('tabcount');
 	var outputJson = document.getElementById('outjson');
 	var outputText = document.getElementById('outtext');
 	var inputJson = document.getElementById('importJsonArea');
 	var importButton = document.getElementById('import');
+	var tab1 = document.getElementsByClassName('tab_text');
+	var tab2 = document.getElementsByClassName('tab_json');
+
 	importButton.addEventListener('click', function() {
         ImportJson();
     });
 
-	var tabs = ['tab_text','tab_json'];
-	var tab1 = document.getElementsByClassName('tab_text');
-	var tab2 = document.getElementsByClassName('tab_json');
 	for(var i=0;i<tab1.length;i++){
     	tab1[i].addEventListener('click', function(){
     		outputText.classList.add('show');
@@ -31,16 +33,15 @@
     
 
 	chrome.tabs.query( {}, function (tabs) {
-		var tab = tabs;
 		var json = "";
 		var plaintext = "";
-		count.textContent = tab.length;
+		count.textContent = tabs.length;
 		function outasjson(){
 			json += "[";
-			for(var v in tab){
+			for(var v in tabs){
 				json += "{";
-				json += "\"title\": \"" + tab[v].title + "\",\"url\": \"" + tab[v].url + "\""; //json 
-				if(v == tab.length - 1){
+				json += "\"title\": \"" + tabs[v].title + "\",\"url\": \"" + tabs[v].url + "\""; //json 
+				if(v == tabs.length - 1){
 					json += "}";
 				} else {
 					json += "},";
@@ -49,8 +50,8 @@
 			json += "]";
 		}outasjson();
 		function outastext(){
-			for(var v in tab){
-				plaintext += tab[v].title + "\t" + tab[v].url + "\n"; //json 
+			for(var v in tabs){
+				plaintext += tabs[v].title + "\t" + tabs[v].url + "\n"; //json 
 			}
 		}outastext();
 		outputJson.value = json;
