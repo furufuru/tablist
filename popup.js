@@ -40,7 +40,7 @@
 			json += "[";
 			for(var v in tabs){
 				json += "{";
-				json += "\"title\": \"" + tabs[v].title + "\",\"url\": \"" + tabs[v].url + "\""; //json 
+				json += '\"title\": \"' + tabs[v].title + '\",\"url\": \"' + tabs[v].url + '\"'; //json 
 				if(v == tabs.length - 1){
 					json += "}";
 				} else {
