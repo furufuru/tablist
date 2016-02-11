@@ -7,11 +7,16 @@
 	var outputText = document.getElementById('outtext');
 	var inputJson = document.getElementById('importJsonArea');
 	var importButton = document.getElementById('import');
+	var fileSave = document.getElementById('savefile');
 	var tab1 = document.getElementsByClassName('tab_text');
 	var tab2 = document.getElementsByClassName('tab_json');
 
 	importButton.addEventListener('click', function() {
         ImportJson();
+    });
+
+	fileSave.addEventListener('click', function() {
+        SaveFile();
     });
 
 	for(var i=0;i<tab1.length;i++){
@@ -59,7 +64,7 @@
 	});
 	function ImportJson(){
 		if(inputJson.value == "" || inputJson.value == null){
-			console.log("Nothing");
+			console.log("Empty data.");
 			ShowError();
 		} else {
 			try{
@@ -89,5 +94,12 @@
 			errorElement.classList.remove('show');
 			errorElement.classList.add('hide');
 		},3000);
+	}
+
+	function SaveFile(){
+		var json = outputJson.value;
+		var blob = new Blob([json], {type: "application/json;charset=utf-8"});
+		var filename = "chrome_tabs.json";
+		saveAs(blob, filename);
 	}
 })();
