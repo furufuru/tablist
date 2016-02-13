@@ -20,6 +20,7 @@ button{
 	background: #9b59b6;
 	color: #fff;
 	padding: 4px 0;
+	transition: 0.1s linear;
 }
 #tabcount{
 	color:green;
@@ -36,7 +37,7 @@ button{
 	text-decoration: none;
 	transition: 0.1s linear;
 }
-#tab a:hover{
+#tab a:hover,button:hover{
 	background: #8e44ad;
 }
 .show{

@@ -35,12 +35,11 @@
     		outputJson.classList.remove('hide');
     	}, false);
     }
-    
 
 	chrome.tabs.query( {}, function (tabs) {
 		var json = "";
 		var plaintext = "";
-		count.textContent = tabs.length;
+		count.textContent = tabs.length - 1;
 		function outasjson(){
 			json += "[";
 			for(var v in tabs){
@@ -87,10 +86,12 @@
 	}
 
 	function ShowError(){
+		var errorAnim;
 		var errorElement = document.getElementById('error');
 		errorElement.classList.remove('hide');
 		errorElement.classList.add('show');
-		setInterval(function(){
+		clearInterval(errorAnim);
+		errorAnim = setInterval(function(){
 			errorElement.classList.remove('show');
 			errorElement.classList.add('hide');
 		},3000);
