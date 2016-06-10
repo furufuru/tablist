@@ -37,30 +37,32 @@
     }
 
 	chrome.tabs.query( {}, function (tabs) {
-		var json = "";
+		var new_tabs = [];
+		var json;
 		var plaintext = "";
-		count.textContent = tabs.length - 1;
-		function outasjson(){
-			json += "[";
-			for(var v in tabs){
-				json += "{";
-				json += '\"title\": \"' + tabs[v].title + '\",\"url\": \"' + tabs[v].url + '\"'; //json 
-				if(v == tabs.length - 1){
-					json += "}";
-				} else {
-					json += "},";
-				}
-			}
-			json += "]";
-		}outasjson();
-		function outastext(){
+
+		tabs.forEach(function(tab){
+			var temp_obj = [];var temp_arr = {};
+			temp_arr.title = tab.title;
+			temp_arr.url = tab.url;
+			new_tabs.push(temp_arr);
+		});
+		count.textContent = new_tabs.length;
+		console.log(new_tabs);
+		json = JSON.stringify(new_tabs);
+		console.log(json);
+		/*function outastext(){
 			for(var v in tabs){
 				plaintext += tabs[v].title + "\t" + tabs[v].url + "\n"; //json 
 			}
-		}outastext();
+		}outastext();*/
+		new_tabs.forEach(function(tab){
+			plaintext = plaintext + tab.title + " " + tab.url + "\n";
+		});
 		outputJson.value = json;
 		outputText.value = plaintext;
 	});
+
 	function ImportJson(){
 		if(inputJson.value == "" || inputJson.value == null){
 			console.log("Empty data.");

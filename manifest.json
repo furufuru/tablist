@@ -14,6 +14,21 @@
   "permissions": [
       "tabs"
   ],
+  "commands": {
+    "disable-windowskiller": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+R",
+        "mac": "Command+Shift+W",
+        "linux": "Ctrl+Shift+R"
+      },
+      "description": "Toggle feature foo"
+    },
+    "_execute_page_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+1"
+      }
+    }
+  },
   "browser_action": {
     "default_icon": "icon128.png",
     "default_title": "TabList",
