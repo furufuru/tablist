@@ -48,19 +48,15 @@
 			new_tabs.push(temp_arr);
 		});
 		count.textContent = new_tabs.length;
-		console.log(new_tabs);
 		json = JSON.stringify(new_tabs);
-		console.log(json);
-		/*function outastext(){
-			for(var v in tabs){
-				plaintext += tabs[v].title + "\t" + tabs[v].url + "\n"; //json 
-			}
-		}outastext();*/
 		new_tabs.forEach(function(tab){
 			plaintext = plaintext + tab.title + " " + tab.url + "\n";
 		});
 		outputJson.value = json;
 		outputText.value = plaintext;
+
+		console.debug(new_tabs);
+		console.debug(json);
 	});
 
 	function ImportJson(){
@@ -88,12 +84,11 @@
 	}
 
 	function ShowError(){
-		var errorAnim;
 		var errorElement = document.getElementById('error');
 		errorElement.classList.remove('hide');
 		errorElement.classList.add('show');
 		clearInterval(errorAnim);
-		errorAnim = setInterval(function(){
+		var errorAnim = setInterval(function(){
 			errorElement.classList.remove('show');
 			errorElement.classList.add('hide');
 		},3000);
