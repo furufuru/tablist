@@ -1,15 +1,16 @@
 (function(){
 	'use strict';
+	let json;
 
 	// iroiro
-	var count = document.getElementById('tabcount');
-	var outputJson = document.getElementById('outjson');
-	var outputText = document.getElementById('outtext');
-	var inputJson = document.getElementById('importJsonArea');
-	var importButton = document.getElementById('import');
-	var fileSave = document.getElementById('savefile');
-	var tab1 = document.getElementsByClassName('tab_text');
-	var tab2 = document.getElementsByClassName('tab_json');
+	const count = document.getElementById('tabcount');
+	const outputJson = document.getElementById('outjson');
+	const outputText = document.getElementById('outtext');
+	const inputJson = document.getElementById('importJsonArea');
+	const importButton = document.getElementById('import');
+	const fileSave = document.getElementById('savefile');
+	const tab1 = document.getElementById('tab_text');
+	const tab2 = document.getElementById('tab_json');
 
 	importButton.addEventListener('click', function() {
         ImportJson();
@@ -19,33 +20,25 @@
         SaveFile();
     });
 
-	for(var i=0;i<tab1.length;i++){
-    	tab1[i].addEventListener('click', function(){
-    		outputText.classList.add('show');
-    		outputText.classList.remove('hide');
-    		outputJson.classList.add('hide');
-    		outputJson.classList.remove('show');
-    	}, false);
-    }
-	for(var i=0;i<tab2.length;i++){
-    	tab2[i].addEventListener('click', function(){
-    		outputText.classList.add('hide');
-    		outputText.classList.remove('show');
-    		outputJson.classList.add('show');
-    		outputJson.classList.remove('hide');
-    	}, false);
-    }
+    tab1.addEventListener('click', function(){
+    	outputText.classList.add('show');
+    	outputText.classList.remove('hide');
+    	outputJson.classList.add('hide');
+    	outputJson.classList.remove('show');
+    }, false);
+    tab2.addEventListener('click', function(){
+    	outputText.classList.add('hide');
+    	outputText.classList.remove('show');
+    	outputJson.classList.add('show');
+    	outputJson.classList.remove('hide');
+    }, false);
 
 	chrome.tabs.query( {}, function (tabs) {
-		var new_tabs = [];
-		var json;
-		var plaintext = "";
+		const new_tabs = [];
+		let plaintext = "";
 
 		tabs.forEach(function(tab){
-			var temp_obj = [];var temp_arr = {};
-			temp_arr.title = tab.title;
-			temp_arr.url = tab.url;
-			new_tabs.push(temp_arr);
+			new_tabs.push({title: tab.title,url: tab.url});
 		});
 		count.textContent = new_tabs.length;
 		json = JSON.stringify(new_tabs);
@@ -78,8 +71,7 @@
 
 	function openTabs(link){
 		chrome.tabs.create({url:link},function(tab){
-			console.log(tab);
-			return true;
+			console.debug(tab);
 		});
 	}
 
@@ -95,7 +87,6 @@
 	}
 
 	function SaveFile(){
-		var json = outputJson.value;
 		var blob = new Blob([json], {type: "application/json;charset=utf-8"});
 		var filename = "chrome_tabs.json";
 		saveAs(blob, filename);
