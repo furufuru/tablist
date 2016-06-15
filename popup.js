@@ -87,8 +87,8 @@
 	}
 
 	function SaveFile(){
-		var blob = new Blob([json], {type: "application/json;charset=utf-8"});
-		var filename = "chrome_tabs.json";
+		const blob = new Blob([json], {type: "application/json;charset=utf-8"});
+		const filename = "chrome_tabs.json";
 		saveAs(blob, filename);
 	}
 })();
