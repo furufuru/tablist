@@ -58,7 +58,7 @@
 			ShowError();
 		} else {
 			try{
-				var urls = JSON.parse(inputJson.value);
+				const urls = JSON.parse(inputJson.value);
 				for(var v in urls){
 					openTabs(urls[v].url);
 				}
@@ -76,11 +76,11 @@
 	}
 
 	function ShowError(){
-		var errorElement = document.getElementById('error');
+		const errorElement = document.getElementById('error');
 		errorElement.classList.remove('hide');
 		errorElement.classList.add('show');
 		clearInterval(errorAnim);
-		var errorAnim = setInterval(function(){
+		const errorAnim = setInterval(function(){
 			errorElement.classList.remove('show');
 			errorElement.classList.add('hide');
 		},3000);
