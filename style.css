@@ -24,6 +24,7 @@ button{
 }
 #tabcount{
 	color:green;
+	font-size:3em;
 	text-shadow:0 0 3px green;
 }
 #tab{
@@ -52,4 +53,8 @@ button{
 	padding: 8px;
 	text-align: center;
 	border:1px solid #ebccd1;
+}
+.center{
+	text-align: center;
+	font-style: italic;
 }

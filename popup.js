@@ -52,7 +52,7 @@
 		console.debug(json);
 	});
 
-	function ImportJson(){
+	const ImportJson = function(){
 		if(inputJson.value == "" || inputJson.value == null){
 			console.log("Empty data.");
 			ShowError();
@@ -69,13 +69,13 @@
 		}
 	}
 
-	function openTabs(link){
+	const openTabs = function(link){
 		chrome.tabs.create({url:link},function(tab){
 			console.debug(tab);
 		});
 	}
 
-	function ShowError(){
+	const ShowError = function(){
 		const errorElement = document.getElementById('error');
 		errorElement.classList.remove('hide');
 		errorElement.classList.add('show');
@@ -86,7 +86,7 @@
 		},3000);
 	}
 
-	function SaveFile(){
+	const SaveFile = function(){
 		const blob = new Blob([json], {type: "application/json;charset=utf-8"});
 		const filename = "chrome_tabs.json";
 		saveAs(blob, filename);

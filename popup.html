@@ -6,17 +6,17 @@
 </head>
 <body>
 	<h1 id="title">TabList</h1>
-	<p><span id="tabcount"></span> tabs in Chrome.</p>
+	<p class="center"><span id="tabcount"></span> tabs in Chrome.</p>
 	<p>Export Tabs</p>
 	<!-- ToooDoooooo -->
 	<div id="tab"><a href="#" id="tab_text">PlainText</a><a href="#" id="tab_json">JSON</a></div>
 	<p><textarea id="outtext" class="show"></textarea></p>
 	<p><textarea id="outjson" class="hide"></textarea></p>
-	<p><button id="savefile">Save as a file. (JSON)</button></p>
-	<p>Import Tabs (JSON Only)</p>
+	<p><button id="savefile">Save. (JSON)</button></p>
+	<p>Import Tabs (JSON)</p>
 	<p><textarea id="importJsonArea"></textarea></p>
 	<p id="error" class="hide">Invaild JSON.</p>
-	<p><input type="file" id="fromfile"></input></p>
+	<p><input type="file" id="fromfile" accept=".json"></input></p>
 	<p><button id="import">Import!</button></p>
 	<script src="popup.js" tyle="text/javascript"></script>
 	<script src="FileSaver.min.js" tyle="text/javascript"></script>
