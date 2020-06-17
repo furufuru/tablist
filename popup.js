@@ -13,12 +13,12 @@
 	const tab2 = document.getElementById('tab_json');
 
 	importButton.addEventListener('click', function() {
-        ImportJson();
-    });
+		ImportJson();
+	});
 
 	fileSave.addEventListener('click', function() {
-        SaveFile();
-    });
+		SaveFile();
+	});
 
     tab1.addEventListener('click', function(){
     	outputText.classList.add('show');
@@ -38,7 +38,7 @@
 		let plaintext = "";
 
 		tabs.forEach(function(tab){
-			new_tabs.push({title: tab.title,url: tab.url});
+			new_tabs.push({title: tab.title,url: tab.url, wid: tab.windowId});
 		});
 		count.textContent = new_tabs.length;
 		json = JSON.stringify(new_tabs);
